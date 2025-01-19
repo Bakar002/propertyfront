@@ -1,331 +1,69 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import im1 from "../assests/Serenity Waters Luxury Villa 1.png";
-import im2 from "../assests/download.jpg";
-import im3 from "../assests/Serenity Waters Luxury Villa 1.png";
+import { MdClose } from "react-icons/md";
 import "./man.css";
-import l1 from "../assests/Waterfront Living.jpeg";
-import l2 from "../assests/Golf Community.jpg";
 import Footer from "./Footer";
 const HomeListing = () => {
-  const [homes, setHomes] = useState([
-    {
-      id: 1,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 2,
-      location: "Palm Jumeirah",
-      status: "Off-plain",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 3,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 4,
-      location: "Palm Jumeirah4",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 5,
-      location: "Palm Jumeirah5",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 6,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 7,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 8,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 9,
-      location: "Palm Jumeirah",
-      status: "Off-plain",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 10,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 11,
-      location: "Palm Jumeirah4",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 12,
-      location: "Palm Jumeirah5",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 13,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 14,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 15,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 16,
-      location: "Palm Jumeirah",
-      status: "Off-plain",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 17,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 18,
-      location: "Palm Jumeirah4",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 19,
-      location: "Palm Jumeirah5",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 20,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 21,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-  ]);
-  const properties = [
-    {
-      id: 1,
-      image: l1, // Replace with actual image URL
-      title: "Sobha Estates Villas",
-      location: "Sobha Hartland II",
-    },
-    {
-      id: 2,
-      image: l2, // Replace with actual image URL
-      title: "SLS Residences the Palm",
-      location: "Palm Jumeirah",
-    },
-    {
-      id: 3,
-      image: l1, // Replace with actual image URL
-      title: "Amali Island",
-      location: "The World Islands",
-    },
-    {
-      id: 1,
-      image: l2, // Replace with actual image URL
-      title: "Sobha Estates Villas",
-      location: "Sobha Hartland II",
-    },
-    {
-      id: 2,
-      image: l1, // Replace with actual image URL
-      title: "SLS Residences the Palm",
-      location: "Palm Jumeirah",
-    },
-    {
-      id: 3,
-      image: l2, // Replace with actual image URL
-      title: "Amali Island",
-      location: "The World Islands",
-    },
-  ];
+  const [homes, setHomes] = useState([]);
+  const [properties, setProperties] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [filters, setFilters] = useState({
+    priceMin: "",
+    priceMax: "",
+    bedrooms: "",
+    bathrooms: "",
+    city: "",
+    state: "",
+    country: "",
+    propertyType: "",
+    schools: "",
+    parks: "",
+    transportation: "",
+    attractions: "",
+  });
+
   const [currentPage, setCurrentPage] = useState(0);
   const cardsPerPage = 15;
   const totalPages = Math.ceil(homes.length / cardsPerPage);
+
+  useEffect(() => {
+    fetchHomes();
+    fetchProperties();
+  }, []);
+
+  const fetchHomes = async () => {
+    try {
+      const filterParams = new URLSearchParams(filters).toString();
+      const response = await axios.get(`http://localhost:5000/mansions/filter?${filterParams}`);
+      const apiData = response.data;
+      console.log("Filtered homes: ", apiData);
+      setHomes(apiData);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+
+  const fetchProperties = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/property");
+      setProperties(response.data);
+    } catch (error) {
+      console.error("Error fetching property:", error);
+    }
+  };
+
+  const handleFilterChange = (e) => {
+    const { name, value } = e.target;
+    setFilters((prevFilters) => ({ ...prevFilters, [name]: value }));
+  };
+
+  const applyFilters = () => {
+    fetchHomes();
+  };
 
   const handleNextPage = () => {
     if (currentPage < totalPages - 1) {
@@ -367,27 +105,84 @@ const HomeListing = () => {
     <>
       <div className="p-4 md:p-8 bg-slate-100">
         {/* Header Section */}
+
+        {/* Filter Modal */}
+        {showModal && (
+          <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-xl font-semibold">Filters</h2>
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="text-gray-600 hover:text-gray-800"
+                >
+                  <MdClose size={24} />
+                </button>
+              </div>
+              <div className="grid gap-4">
+                <input
+                  type="number"
+                  name="priceMin"
+                  value={filters.priceMin}
+                  onChange={handleFilterChange}
+                  placeholder="Min Price"
+                  className="p-2 border rounded-md"
+                />
+                <input
+                  type="number"
+                  name="priceMax"
+                  value={filters.priceMax}
+                  onChange={handleFilterChange}
+                  placeholder="Max Price"
+                  className="p-2 border rounded-md"
+                />
+                <input
+                  type="number"
+                  name="bedrooms"
+                  value={filters.bedrooms}
+                  onChange={handleFilterChange}
+                  placeholder="Bedrooms"
+                  className="p-2 border rounded-md"
+                />
+                <input
+                  type="number"
+                  name="bathrooms"
+                  value={filters.bathrooms}
+                  onChange={handleFilterChange}
+                  placeholder="Bathrooms"
+                  className="p-2 border rounded-md"
+                />
+                <input
+                  type="text"
+                  name="city"
+                  value={filters.city}
+                  onChange={handleFilterChange}
+                  placeholder="City"
+                  className="p-2 border rounded-md"
+                />
+                <button
+                  onClick={applyFilters}
+                  className="px-4 py-2 bg-green-600 text-white font-medium rounded-md hover:bg-green-700"
+                >
+                  Apply Filters
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+        
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
           {/* Left Section */}
           <div className="flex items-center space-x-4">
-            <span className="font-medium text-gray-700 whitespace-nowrap">
-              870 homes
-            </span>
-            <div className="flex flex-wrap gap-2">
-              <button className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium hover:bg-gray-200">
-                Type
-              </button>
-              <button className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium hover:bg-gray-200">
-                Size
-              </button>
-              <button className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium hover:bg-gray-200">
-                Bedrooms
-              </button>
-              <button className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium hover:bg-gray-200">
-                Price
-              </button>
-              <button className="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium hover:bg-gray-200">
-                More
+            <div className="flex items-center space-x-4">
+              <span className="font-medium text-gray-700 whitespace-nowrap">
+                {homes.length} homes
+              </span>
+              <button
+                onClick={() => setShowModal(true)}
+                className="px-4 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-gray-800"
+              >
+                Filters
               </button>
             </div>
           </div>
@@ -400,7 +195,6 @@ const HomeListing = () => {
                 <option className="text-gray-700">Featured</option>
                 <option className="text-gray-700">Price: High to Low</option>
                 <option className="text-gray-700">Price: Low to High</option>
-                <option className="text-gray-700">Newest</option>
               </select>
             </div>
             <button className="px-4 py-2 bg-black text-white text-sm font-medium rounded-full hover:bg-gray-800">
@@ -412,7 +206,7 @@ const HomeListing = () => {
         {/* Cards Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayedHomes.map((home) => (
-            <div key={home.id} className="rounded-lg overflow-hidden">
+            <div key={home._id} className="rounded-lg overflow-hidden">
               <div className="relative">
                 <Slider {...sliderSettings}>
                   {home.images.map((img, idx) => (
@@ -439,27 +233,27 @@ const HomeListing = () => {
                       <span>{home.followers} Followers</span>
                     </div>
                     <button
-                      onClick={() => toggleFollow(home.id)}
-                      className={`px-4 py-2 text-sm font-medium border rounded-lg ${
-                        home.isFollowed
-                          ? "bg-gray-800 text-white"
-                          : "bg-white text-gray-800"
-                      }`}
+                      onClick={() => toggleFollow(home._id)}
+                      className={`px-4 py-2 text-sm font-medium border rounded-lg ${home.isFollowed ? "bg-gray-800 text-white" : "bg-white text-gray-800"
+                        }`}
                     >
                       {home.isFollowed ? "Following" : "Follow"}
                     </button>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <h2 className="text-lg font-medium">{home.location}</h2>
+                  <h2 className="text-lg font-medium">
+                    {home.location.city}, {home.location.state}, {home.location.country}
+                  </h2>
                   <p className="text-sm text-gray-500">{home.status}</p>
                 </div>
-                <p className="text-sm text-gray-500">{home.type}</p>
-                <p className="text-lg  text-gray-800">{home.price}</p>
-                <p className="text-sm text-gray-500">{home.details}</p>
+                <p className="text-sm text-gray-500">{home.propertyType}</p>
+                <p className="text-lg text-gray-800">${home.price.toLocaleString()}</p>
+                <p className="text-sm text-gray-500">{home.description}</p>
               </div>
             </div>
           ))}
+
         </div>
       </div>
       <div className="flex justify-center  m-8 p-4 ">

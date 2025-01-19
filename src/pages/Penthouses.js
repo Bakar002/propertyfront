@@ -1,332 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import im1 from "../assests/Serenity Waters Luxury Villa 1.png";
-import im2 from "../assests/download.jpg";
-import im3 from "../assests/Serenity Waters Luxury Villa 1.png";
 import "../components/man.css";
 import { FaSearch } from "react-icons/fa";
-import l1 from "../assests/Waterfront Living.jpeg";
-import l2 from "../assests/Golf Community.jpg";
 import Footer from "../components/Footer";
 const Penthouses = () => {
-  const [homes, setHomes] = useState([
-    {
-      id: 1,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 2,
-      location: "Palm Jumeirah",
-      status: "Off-plain",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 3,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 4,
-      location: "Palm Jumeirah4",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 5,
-      location: "Palm Jumeirah5",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 6,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 7,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 8,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 9,
-      location: "Palm Jumeirah",
-      status: "Off-plain",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 10,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 11,
-      location: "Palm Jumeirah4",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 12,
-      location: "Palm Jumeirah5",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 13,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 14,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 15,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 16,
-      location: "Palm Jumeirah",
-      status: "Off-plain",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 17,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 18,
-      location: "Palm Jumeirah4",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 19,
-      location: "Palm Jumeirah5",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 20,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-    {
-      id: 21,
-      location: "Palm Jumeirah",
-      status: "Ready",
-      type: "Signature Villas",
-      price: "AED 79,000,000",
-      details: "Villa • 5 beds • 9,780 sq. ft.",
-      views: 436,
-      followers: 3,
-      isFeatured: true,
-      isFollowed: false,
-      images: [im1, im2, im3],
-    },
-  ]);
-  const properties = [
-    {
-      id: 1,
-      image: l1, // Replace with actual image URL
-      title: "Sobha Estates Villas",
-      location: "Sobha Hartland II",
-    },
-    {
-      id: 2,
-      image: l2, // Replace with actual image URL
-      title: "SLS Residences the Palm",
-      location: "Palm Jumeirah",
-    },
-    {
-      id: 3,
-      image: l1, // Replace with actual image URL
-      title: "Amali Island",
-      location: "The World Islands",
-    },
-    {
-      id: 1,
-      image: l2, // Replace with actual image URL
-      title: "Sobha Estates Villas",
-      location: "Sobha Hartland II",
-    },
-    {
-      id: 2,
-      image: l1, // Replace with actual image URL
-      title: "SLS Residences the Palm",
-      location: "Palm Jumeirah",
-    },
-    {
-      id: 3,
-      image: l2, // Replace with actual image URL
-      title: "Amali Island",
-      location: "The World Islands",
-    },
-  ];
+  const [homes, setHomes] = useState([]);
+  const [properties, setProperties] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
   const cardsPerPage = 15;
   const totalPages = Math.ceil(homes.length / cardsPerPage);
+
+  // Fetch penthouse data from the API
+  useEffect(() => {
+    fetchHomes();
+    fetchProperties();
+  }, []);
+
+  const fetchHomes = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/penthouses");
+      setHomes(response.data);
+    } catch (error) {
+      console.error("Error fetching penthouses:", error);
+    }
+  };
+
+  const fetchProperties = async () => {
+    try {
+      const response = await axios.get("http://localhost:5000/property");
+      setProperties(response.data);
+    } catch (error) {
+      console.error("Error fetching property:", error);
+    }
+  };
 
   const handleNextPage = () => {
     if (currentPage < totalPages - 1) {
@@ -474,23 +183,24 @@ const Penthouses = () => {
                     </div>
                     <button
                       onClick={() => toggleFollow(home.id)}
-                      className={`px-4 py-2 text-sm font-medium border rounded-lg ${
-                        home.isFollowed
-                          ? "bg-gray-800 text-white"
-                          : "bg-white text-gray-800"
-                      }`}
+                      className={`px-4 py-2 text-sm font-medium border rounded-lg ${home.isFollowed
+                        ? "bg-gray-800 text-white"
+                        : "bg-white text-gray-800"
+                        }`}
                     >
                       {home.isFollowed ? "Following" : "Follow"}
                     </button>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <h2 className="text-lg font-medium">{home.location}</h2>
+                  <h2 className="text-lg font-medium">
+                    {home.location.city}, {home.location.state}, {home.location.country}
+                  </h2>
                   <p className="text-sm text-gray-500">{home.status}</p>
                 </div>
-                <p className="text-sm text-gray-500">{home.type}</p>
+                <p className="text-sm text-gray-500">{home.propertyType}</p>
                 <p className="text-lg  text-gray-800">{home.price}</p>
-                <p className="text-sm text-gray-500">{home.details}</p>
+                <p className="text-sm text-gray-500">{`Penthouse • ${home.bedrooms} beds • ${home.size} sq. ft.`}</p>
               </div>
             </div>
           ))}
