@@ -157,17 +157,25 @@ const Penthouses = () => {
           {displayedHomes.map((home) => (
             <div key={home.id} className="rounded-lg overflow-hidden">
               <div className="relative">
-                <Slider {...sliderSettings}>
-                  {home.images.map((img, idx) => (
-                    <div key={idx}>
-                      <img
-                        src={img}
-                        alt={`Slide ${idx + 1}`}
-                        className="w-full h-60 object-cover"
-                      />
-                    </div>
-                  ))}
-                </Slider>
+              {home.images.length > 1 ? (
+                  <Slider {...sliderSettings}>
+                    {home.images.map((img, idx) => (
+                      <div key={idx}>
+                        <img
+                          src={img}
+                          alt={`Slide ${idx + 1}`}
+                          className="w-full h-60 object-cover"
+                        />
+                      </div>
+                    ))}
+                  </Slider>
+                ) : (
+                  <img
+                    src={home.images[0]} // Show a single image directly
+                    alt="Mansion"
+                    className="w-full h-60 object-cover"
+                  />
+                )}
                 {home.isFeatured && (
                   <span className="absolute top-2 left-2 bg-white text-black text-xs font-medium px-3 py-1 shadow">
                     Featured
