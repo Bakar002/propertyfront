@@ -55,7 +55,7 @@ function CreatePost() {
     let payload = { ...dynamicFields };
 
     if (category === "Penthouse") {
-      apiUrl = "http://localhost:5000/penthouses";
+      apiUrl = "https://patient-unity-production.up.railway.app/penthouses";
       payload = {
         ...payload,
         location: { city: payload.city, state: payload.state, country: payload.country },
@@ -77,7 +77,7 @@ function CreatePost() {
         images: images.map((file) => URL.createObjectURL(file)),
       };
     } else if (category === "Mansion") {
-      apiUrl = "http://localhost:5000/mansions";
+      apiUrl = "https://patient-unity-production.up.railway.app/mansions";
       payload = {
         ...payload,
         location: {
@@ -100,7 +100,7 @@ function CreatePost() {
         images: images.map((file) => URL.createObjectURL(file)),
       };
     } else if (category === "Luxury Collectible") {
-      apiUrl = "http://localhost:5000/luxury-collectibles";
+      apiUrl = "https://patient-unity-production.up.railway.app/luxury-collectibles";
       payload = {
         ...payload,
         category: payload.category.charAt(0).toUpperCase() + payload.category.slice(1),
@@ -115,7 +115,7 @@ function CreatePost() {
         images: images.map((file) => URL.createObjectURL(file)),
       };
     } else if (category === "Property") {
-      apiUrl = "http://localhost:5000/property";
+      apiUrl = "https://patient-unity-production.up.railway.app/property";
       payload = {
         ...payload,
         image: URL.createObjectURL(images[0]),

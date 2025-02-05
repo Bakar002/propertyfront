@@ -22,7 +22,7 @@ const Dashboard = ({
   const fetchPosts = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:5000/${viewType}`);
+      const response = await axios.get(`https://patient-unity-production.up.railway.app/${viewType}`);
       setPosts(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -36,7 +36,7 @@ const Dashboard = ({
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/${viewType}/${id}`);
+      await axios.delete(`https://patient-unity-production.up.railway.app/${viewType}/${id}`);
       setPosts(posts.filter((post) => post._id !== id)); // Update state after deletion
       alert("Item deleted successfully");
     } catch (error) {

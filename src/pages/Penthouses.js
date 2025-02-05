@@ -21,7 +21,7 @@ const Penthouses = () => {
 
   const fetchHomes = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/penthouses");
+      const response = await axios.get("https://patient-unity-production.up.railway.app/penthouses");
       setHomes(response.data);
     } catch (error) {
       console.error("Error fetching penthouses:", error);
@@ -30,7 +30,7 @@ const Penthouses = () => {
 
   const fetchProperties = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/property");
+      const response = await axios.get("https://patient-unity-production.up.railway.app/property");
       setProperties(response.data);
     } catch (error) {
       console.error("Error fetching property:", error);
