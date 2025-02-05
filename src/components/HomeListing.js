@@ -37,7 +37,7 @@ const HomeListing = () => {
   const fetchHomes = async () => {
     try {
       const filterParams = new URLSearchParams(filters).toString();
-      const response = await axios.get(`http://localhost:5000/mansions/filter?${filterParams}`);
+      const response = await axios.get(`https://patient-unity-production.up.railway.app/mansions/filter?${filterParams}`);
       const apiData = response.data;
       console.log("Filtered homes: ", apiData);
       setHomes(apiData);
@@ -49,7 +49,7 @@ const HomeListing = () => {
 
   const fetchProperties = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/property");
+      const response = await axios.get("https://patient-unity-production.up.railway.app/property");
       setProperties(response.data);
     } catch (error) {
       console.error("Error fetching property:", error);

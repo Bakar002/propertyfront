@@ -8,17 +8,17 @@ const FeaturedListings = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/mansions")
+      .get("https://patient-unity-production.up.railway.app/mansions")
       .then((response) => setMansions(response.data))
       .catch((error) => console.error("Error fetching mansions:", error));
 
     axios
-      .get("http://localhost:5000/penthouses")
+      .get("https://patient-unity-production.up.railway.app/penthouses")
       .then((response) => setPenthouses(response.data))
       .catch((error) => console.error("Error fetching penthouses:", error));
 
     axios
-      .get("http://localhost:5000/luxury-collectibles")
+      .get("https://patient-unity-production.up.railway.app/luxury-collectibles")
       .then((response) => setCollectibles(response.data))
       .catch((error) => console.error("Error fetching collectibles:", error));
   }, []);
